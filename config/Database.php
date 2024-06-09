@@ -1,7 +1,7 @@
 <?php
 class Database {
   private $host = "localhost";
-  private $db_name = "tp_ial";
+  private $db_name = "mglsi_news";
   private $username = "root";
   private $password = "";
   public $conn;
