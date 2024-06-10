@@ -1,7 +1,7 @@
 <?php
-include_once 'config/Database.php';
-include_once 'models/Categorie.php';
-include_once 'models/Article.php';
+require_once 'config/Database.php';
+require_once 'models/Categorie.php';
+require_once 'models/Article.php';
 
 class CategorieController {
   private $db;

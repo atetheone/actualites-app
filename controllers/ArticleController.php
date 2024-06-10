@@ -1,6 +1,6 @@
 <?php
-include_once 'config/Database.php';
-include_once 'models/Article.php';
+require_once 'config/Database.php';
+require_once 'models/Article.php';
 
 class ArticleController {
   private $db;
@@ -15,6 +15,6 @@ class ArticleController {
   public function index() {
     $stmt = $this->article->read();
     $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    include 'views/articles.php';
+    include 'views/articles/index.php';
   }
 }
