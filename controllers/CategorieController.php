@@ -1,7 +1,7 @@
 <?php
-require_once 'config/Database.php';
-require_once 'models/Categorie.php';
-require_once 'models/Article.php';
+require_once '../config/Database.php';
+require_once '../models/Categorie.php';
+require_once '../models/Article.php';
 
 class CategorieController {
   private $db;
@@ -15,14 +15,8 @@ class CategorieController {
     $this->article = new Article($this->db);
   }
 
-  public function show($id) {
-    $category = $this->category->readOne($id);
-    $stmt = $this->article->readByCategory($id);
-    $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    include 'views/categories.php';
-  }
 
-  public function getCategories() {
+  public function getAllCategories() {
     $categories = $this->category->readAll();
     return $categories;
   }
