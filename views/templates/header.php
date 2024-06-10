@@ -2,8 +2,6 @@
   require_once '../controllers/CategorieController.php';
   $categorieController = new CategorieController();
   $categories = $categorieController->getAllCategories();
-
-  // var_dump($categories);
 ?>
 
 <!DOCTYPE html>
