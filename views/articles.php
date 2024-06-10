@@ -10,8 +10,8 @@
             <article>
                 <h2><?= $article['titre'] ?></h2>
                 <p><?= $article['contenu'] ?></p>
-								<p><?=  $article['libelle'] ?></p>
-                <small>Publié le: <?= (new DateTime($article['dateCreation']))->format('d/m/Y H:i:s'); ?></small>
+								<p><?=  "Categorie : " . $article['libelle'] ?></p>
+                <small>Publié le: <?= (new DateTime($article['dateCreation']))->format('d/m/Y H:i:s') ?></small>
             </article>
         <?php endforeach; ?>
     <?php else: ?>
