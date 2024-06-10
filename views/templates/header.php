@@ -15,8 +15,8 @@
 <body>
   <header>
     <nav>
+      <div class="home"><a href="index.php">Accueil</a></div>
       <ul>
-        <li><a href="index.php">Accueil</a></li>
         <?php 
           foreach ($categories as $categorie) {
             echo '
