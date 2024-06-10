@@ -1,6 +1,6 @@
 <?php
-require_once 'config/Database.php';
-require_once 'models/Article.php';
+require_once '../config/Database.php';
+require_once '../models/Article.php';
 
 class ArticleController {
   private $db;
@@ -12,9 +12,13 @@ class ArticleController {
     $this->article = new Article($this->db);
   }
 
-  public function index() {
-    $stmt = $this->article->read();
-    $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    include 'views/articles/index.php';
+  public function getAllArticles() {
+    $articles = $this->article->getAllArticles();
+    include '../views/articles.php';
+  }
+
+  public function getArticleByCategorieId($id) {
+    $articles =  $this->article->readByCategory($id);
+    include '../views/articles.php';
   }
 }
