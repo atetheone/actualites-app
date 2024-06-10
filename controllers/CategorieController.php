@@ -1,23 +1,15 @@
 <?php
-require_once '../config/Database.php';
-require_once '../models/Categorie.php';
-require_once '../models/Article.php';
+require_once '../daos/CategorieDAO.php';
 
 class CategorieController {
-  private $db;
-  private $category;
-  private $article;
+  private $categorieDAO;
 
   public function __construct() {
-    $database = new Database();
-    $this->db = $database->getConnection();
-    $this->category = new Categorie($this->db);
-    $this->article = new Article($this->db);
+    $this->categorieDAO = new CategorieDAO();
   }
 
 
   public function getAllCategories() {
-    $categories = $this->category->readAll();
-    return $categories;
+    return $this->categorieDAO->readAll();;
   }
 }
