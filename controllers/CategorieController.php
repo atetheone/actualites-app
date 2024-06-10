@@ -1,5 +1,5 @@
 <?php
-require_once '../daos/CategorieDAO.php';
+require_once 'daos/CategorieDAO.php';
 
 class CategorieController {
   private $categorieDAO;

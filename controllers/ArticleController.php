@@ -1,5 +1,5 @@
 <?php
-require_once '../daos/ArticleDAO.php';
+require_once 'daos/ArticleDAO.php';
 
 class ArticleController {
   private $articleDAO;
@@ -10,11 +10,11 @@ class ArticleController {
 
   public function getAllArticles() {
     $articles = $this->articleDAO->getAllArticles();
-    include '../views/articles.php';
+    include 'views/articles.php';
   }
 
   public function getArticleByCategorieId($id) {
     $articles =  $this->articleDAO->readByCategory($id);
-    include '../views/articles.php';
+    include 'views/articles.php';
   }
 }

@@ -1,6 +1,6 @@
 <?php
-require_once '../config/Database.php';
-require_once '../models/Categorie.php';
+require_once 'config/Database.php';
+require_once 'models/Categorie.php';
 
 class CategorieDAO {
   private $conn;

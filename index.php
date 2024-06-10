@@ -1,5 +1,5 @@
 <?php
-require_once '../controllers/ArticleController.php';
+require_once 'controllers/ArticleController.php';
 
 $articleController = new ArticleController();
 

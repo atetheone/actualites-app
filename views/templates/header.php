@@ -1,5 +1,5 @@
 <?php 
-  require_once '../controllers/CategorieController.php';
+  require_once 'controllers/CategorieController.php';
   $categorieController = new CategorieController();
   $categories = $categorieController->getAllCategories();
 ?>
@@ -10,7 +10,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MGLSI News</title>
-  <link rel="stylesheet" href="../public/css/styles.css">
+  <link rel="stylesheet" href="public/css/styles.css">
 </head>
 <body>
   <header>
