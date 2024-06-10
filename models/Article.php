@@ -1,37 +1,17 @@
 <?php
 class Article {
-  private $conn;
-  private $table_name = "Article";
-
   private $id;
   private $titre;
   private $contenu;
   private $dateCreation;
   private $categorie;
 
-  public function __construct($db) {
-    $this->conn = $db;
-  }
-
-  public function read() {
-    $query = "SELECT Article.titre, Article.contenu, Categorie.libelle 
-              FROM " . $this->table_name . " 
-              JOIN Categorie ON Article.categorie = Categorie.id 
-              ORDER BY Article.dateCreation DESC";
-
-    $stmt = $this->conn->prepare($query);
-    $stmt->execute();
-    return $stmt;
-  }
-
-  public function readByCategory($categoryId) {
-    $query = "SELECT titre, contenu FROM " . $this->table_name . " 
-              WHERE categorie = :id ORDER BY dateCreation DESC";
-
-    $stmt = $this->conn->prepare($query);
-    $stmt->bindParam(':id', $categoryId);
-    $stmt->execute();
-    return $stmt;
+  public function __construct($id, $titre, $contenu, $dateCreation, $categorie) {
+    $this->id = $id;
+    $this->titre = $titre;
+    $this->contenu = $contenu;
+    $this->dateCreation = $dateCreation;
+    $this->categorie = $categorie;
   }
 
   public function getId() {
