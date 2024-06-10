@@ -1,24 +1,20 @@
 <?php
-require_once '../config/Database.php';
-require_once '../models/Article.php';
+require_once '../daos/ArticleDAO.php';
 
 class ArticleController {
-  private $db;
-  private $article;
+  private $articleDAO;
 
   public function __construct() {
-    $database = new Database();
-    $this->db = $database->getConnection();
-    $this->article = new Article($this->db);
+    $this->articleDAO = new ArticleDAO();
   }
 
   public function getAllArticles() {
-    $articles = $this->article->getAllArticles();
+    $articles = $this->articleDAO->getAllArticles();
     include '../views/articles.php';
   }
 
   public function getArticleByCategorieId($id) {
-    $articles =  $this->article->readByCategory($id);
+    $articles =  $this->articleDAO->readByCategory($id);
     include '../views/articles.php';
   }
 }
