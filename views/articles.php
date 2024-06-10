@@ -1,14 +1,17 @@
-<?php include 'templates/header.php'; ?>
+<?php 
+	include 'templates/header.php';  
+?>
 
-<h1>Les Articles</h1>
+<h1>Les Articles </h1>
 
 <div class="articles">
     <?php if (count($articles) > 0): ?>
         <?php foreach ($articles as $article): ?>
             <article>
-                <h2><?php echo $article['titre']; ?></h2>
-                <p><?php echo $article['contenu']; ?></p>
-                <p><em>Category: <?php echo $article['libelle']; ?></em></p>
+                <h2><?= $article['titre'] ?></h2>
+                <p><?= $article['contenu'] ?></p>
+								<p><?=  $article['libelle'] ?></p>
+                <small>Publié le: <?= (new DateTime($article['dateCreation']))->format('d/m/Y H:i:s'); ?></small>
             </article>
         <?php endforeach; ?>
     <?php else: ?>
