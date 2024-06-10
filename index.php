@@ -1,24 +1,19 @@
-<?php include 'includes/header.php'; ?>
-
-<h1>All Articles</h1>
-
 <?php
-$query = $conn->query("SELECT Article.titre, Article.contenu, Categorie.libelle 
-                       FROM Article 
-                       JOIN Categorie ON Article.categorie = Categorie.id 
-                       ORDER BY Article.dateCreation DESC");
 
-$articles = $query->fetchAll(PDO::FETCH_ASSOC);
-?>
+require 'controllers/ArticleController.php';
+require 'controllers/CategorieController.php';
 
-<div class="articles">
-    <?php foreach ($articles as $article): ?>
-        <article>
-            <h2><?php echo $article['titre']; ?></h2>
-            <p><?php echo $article['contenu']; ?></p>
-            <p><em>Category: <?php echo $article['libelle']; ?></em></p>
-        </article>
-    <?php endforeach; ?>
-</div>
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); // uri = /actualites-app/
+$uri = ltrim($uri, '/actualites-app');
+echo $uri;
 
-<?php include 'includes/footer.php'; ?>
+if ($uri == '/articles' || $uri == '/' || $uri == '') {
+    $controller = new ArticleController();
+    $controller->index();
+} elseif (preg_match('/\/category\/(\d+)/', $uri, $matches)) {
+    $controller = new CategoryController();
+    $controller->show($matches[1]);
+} else {
+    echo "404 Not Found";
+}
+
