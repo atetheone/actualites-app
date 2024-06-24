@@ -2,7 +2,7 @@
 	include 'views/templates/header.php';  
 ?>
 
-<h1>Les Articles de categorie <?= $categorie['libelle'] ?></h1>
+<h1>Les Articles de categorie <?= $categorieLibelle['libelle'] ?></h1>
 
 <div class="articles">
     <?php if (count($articles) > 0): ?>
