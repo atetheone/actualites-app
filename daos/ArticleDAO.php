@@ -22,7 +22,7 @@ class ArticleDAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function readByCategory($categoryId) {
+  public function getArticlesByCategorie($categoryId) {
     $query = "SELECT titre, contenu, dateCreation, libelle FROM " . $this->table_name . ", Categorie 
               WHERE Categorie.id = Article.categorie AND categorie = :id ORDER BY dateCreation DESC";
 
