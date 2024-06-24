@@ -23,8 +23,8 @@ class ArticleDAO {
   }
 
   public function getArticlesByCategorie($categoryId) {
-    $query = "SELECT titre, contenu, dateCreation, libelle FROM " . $this->table_name . ", Categorie 
-              WHERE Categorie.id = Article.categorie AND categorie = :id ORDER BY dateCreation DESC";
+    $query = "SELECT titre, contenu, dateCreation FROM " . $this->table_name . 
+              " WHERE categorie = :id ORDER BY dateCreation DESC";
 
     $stmt = $this->conn->prepare($query);
     $stmt->bindParam(':id', $categoryId);
