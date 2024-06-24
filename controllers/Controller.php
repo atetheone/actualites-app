@@ -19,10 +19,10 @@ class Controller {
     include 'views/home.php';
   }
 
-  public function getArticleByCategorieId($categorie) {
+  public function getArticleByCategorieId($categorieId) {
     $categories = $this->categories;
-
-    $articles =  $this->articleDAO->getArticlesByCategorie($categorie);
+    $categorieLibelle = $this->categorieDAO->getCategorieById($categorieId);
+    $articles =  $this->articleDAO->getArticlesByCategorie($categorieId);
     include 'views/articles.php';
   }
 
