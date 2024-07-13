@@ -1,5 +1,5 @@
 <?php 
-	include 'views/templates/header.php';  
+	include 'templates/header.php';  
 ?>
 
 <h1>Les Articles de categorie <?= $categorieLibelle['libelle'] ?></h1>
