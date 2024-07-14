@@ -31,19 +31,3 @@ class ArticleDAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 }
-/*
-
-
-
-
-  public function readByCategory($categoryId) {
-    $query = "SELECT titre, contenu, dateCreation, libelle FROM " . $this->table_name . ", Categorie 
-              WHERE Categorie.id = Article.categorie AND categorie = :id ORDER BY dateCreation DESC";
-
-    $stmt = $this->conn->prepare($query);
-    $stmt->bindParam(':id', $categoryId);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-  }
-
-*/
