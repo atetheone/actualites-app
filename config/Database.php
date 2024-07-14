@@ -1,23 +1,20 @@
 <?php
 class Database {
-  private $host = "localhost";
-  private $db_name = "mglsi_news";
-  private $username = "root";
-  private $password = "";
-  public $conn;
+  private static $host = "localhost";
+  private static $db_name = "mglsi_news";
+  private static $username = "root";
+  private static $password = "";
 
-  public function getConnection() {
-    $this->conn = null;
+  public static function getConnection() {
+    $conn = null;
 
     try {
-      $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
-      $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-      // echo "Connected successfully to the database";
+      $conn = new PDO("mysql:host=" . self::$host . ";dbname=" . self::$db_name, self::$username, self::$password);
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch(PDOException $exception) {
       echo "Database connection error: " . $exception->getMessage();
     }
 
-    return $this->conn;
+    return $conn;
   }
 }
