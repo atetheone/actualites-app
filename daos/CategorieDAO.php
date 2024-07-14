@@ -7,8 +7,7 @@ class CategorieDAO {
   private $table_name = "categorie";
 
   public function __construct() {
-    $db = new Database();
-    $this->conn = $db->getConnection();
+    $this->conn = Database::getConnection();
   }
 
   public function getAllCategories() {
