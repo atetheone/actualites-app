@@ -3,12 +3,11 @@ require_once 'models/Article.php';
 require_once 'config/Database.php';
 
 class ArticleDAO {
-  private $table_name = "article"; // "articles
+  private $table_name = "article";
   private $conn;
 
   public function __construct() {
-    $this->db = new Database();
-    $this->conn = $this->db->getConnection();
+    $this->conn = Database::getConnection();
   }
 
   public function getAllArticles() {
