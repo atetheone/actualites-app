@@ -8,6 +8,10 @@ class Categorie {
     $this->libelle = $libelle;
   }
 
+  public function getId() {
+    return $this->id;
+  }
+
   public function getLibelle() {
     return $this->libelle;
   }
